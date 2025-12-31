@@ -9,7 +9,6 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #006633, #cc0000);
   color: #fff;
   text-align: center;
 }
@@ -17,6 +16,25 @@ body {
 .section {
   min-height: 100vh;
   padding: 25px 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Overlay sombre pour lisibilité */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+
+.section * {
+  position: relative;
+  z-index: 1;
 }
 
 h1, h2 {
@@ -47,12 +65,24 @@ h1, h2 {
   font-size: 14px;
   opacity: 0.9;
 }
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .section {
+    background-attachment: scroll;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<section id="page1" class="section">
+<!-- PAGE 1 : IMAGE DE COUVERTURE -->
+<section id="page1" class="section" style="background-image: url('cover.jpg');">
+</section>
+
+<!-- PAGE 2 : CONTACT & RESEAUX -->
+<section id="page2" class="section" style="background-image: url('background1.jpg');">
   <h1>Mouloudia Club d’Alger</h1>
   <h2>📞 Contact & Réseaux</h2>
 
@@ -62,12 +92,13 @@ h1, h2 {
   <a class="btn" href="https://tiktok.com" target="_blank">🎵 TikTok</a>
 
   <div class="nav">
-    <a class="btn" href="#page2">➡️ Infos du club</a>
-    <a class="btn" href="#page3">➡️ Paiements</a>
+    <a class="btn" href="#page3">➡️ Infos du club</a>
+    <a class="btn" href="#page4">➡️ Paiements</a>
   </div>
 </section>
 
-<section id="page2" class="section">
+<!-- PAGE 3 : INFOS CLUB -->
+<section id="page3" class="section" style="background-image: url('background2.jpg');">
   <h2>⚽ Informations du club</h2>
 
   <a class="btn" href="#">📊 Classement actuel</a>
@@ -75,12 +106,13 @@ h1, h2 {
   <a class="btn" href="https://facebook.com" target="_blank">🌐 Page officielle MCA</a>
 
   <div class="nav">
-    <a class="btn" href="#page1">⬅ Accueil</a>
-    <a class="btn" href="#page3">➡️ Paiements</a>
+    <a class="btn" href="#page2">⬅ Contact</a>
+    <a class="btn" href="#page4">➡️ Paiements</a>
   </div>
 </section>
 
-<section id="page3" class="section">
+<!-- PAGE 4 : PAIEMENTS -->
+<section id="page4" class="section" style="background-image: url('background3.jpg');">
   <h2>💳 Paiements & Services</h2>
 
   <a class="btn" href="#">⚡ Paiement Sonelgaz</a>
@@ -89,8 +121,8 @@ h1, h2 {
   <a class="btn" href="#">🏠 Paiement AADL</a>
 
   <div class="nav">
-    <a class="btn" href="#page1">⬅ Accueil</a>
-    <a class="btn" href="#page2">⬅ Infos club</a>
+    <a class="btn" href="#page2">⬅ Contact</a>
+    <a class="btn" href="#page3">⬅ Infos club</a>
   </div>
 
   <p class="small">Carte NFC Supporter MCA</p>
